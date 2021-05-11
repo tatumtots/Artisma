@@ -1,21 +1,28 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useState } from "react"
+import { StyleSheet, TextInput, View, Text, Button } from "react-native"
+import Home from "./Components/Home"
+
+//HOOKS EXAMPLE
+// const [text, setText] = useState("jeya")
+{
+  /* <Button title='change text' onPress={() => setText("im changed")}>
+        change text
+      </Button> */
+}
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+      <Home />
     </View>
-  );
+  )
 }
 
+{
+  /*STYLES */
+}
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
   },
-});
+})
