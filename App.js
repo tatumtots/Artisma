@@ -1,6 +1,10 @@
-import React, { useState } from "react"
-import { StyleSheet, TextInput, View, Text, Button } from "react-native"
+import React from "react"
 import Home from "./Components/Home"
+//REDUX IMPORTS
+import { Provider } from "react-redux"
+import { createStore } from "redux"
+import reducer from "./Redux/Reducers/imageReducer"
+import { StyleSheet, View } from "react-native"
 
 //HOOKS EXAMPLE
 // const [text, setText] = useState("jeya")
@@ -9,12 +13,20 @@ import Home from "./Components/Home"
         change text
       </Button> */
 }
+const initialState = {
+  count: 17,
+  num: 2,
+}
+
+const store = createStore(reducer, initialState)
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Home />
-    </View>
+    <Provider store={store}>
+      <View style={styles.container}>
+        <Home />
+      </View>
+    </Provider>
   )
 }
 

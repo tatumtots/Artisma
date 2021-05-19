@@ -1,11 +1,14 @@
-import React, { useState } from "react"
+import React from "react"
 import { StyleSheet, TextInput, View, Text, Button } from "react-native"
+import { connect } from "react-redux"
 
-function Home() {
+const Home = (props) => {
+  console.log("this is PROPS:", props)
   return (
     <View style={styles.container}>
       <View style={styles.textContainer}>
-        <Text>Hey</Text>
+        <Text>{props.state.count}</Text>
+        <Text>{props.state.num}</Text>
       </View>
     </View>
   )
@@ -33,4 +36,8 @@ const styles = StyleSheet.create({
   },
 })
 
-export default Home
+const mapStateToProps = (state) => {
+  console.log(state)
+  return { state }
+}
+export default connect(mapStateToProps)(Home)
