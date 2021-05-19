@@ -2,8 +2,7 @@ import React from "react"
 import Home from "./Components/Home"
 //REDUX IMPORTS
 import { Provider } from "react-redux"
-import { createStore } from "redux"
-import reducer from "./Redux/Reducers/imageReducer"
+import { store } from "./Redux/store"
 import { StyleSheet, View } from "react-native"
 
 //HOOKS EXAMPLE
@@ -13,12 +12,6 @@ import { StyleSheet, View } from "react-native"
         change text
       </Button> */
 }
-const initialState = {
-  count: 17,
-  num: 2,
-}
-
-const store = createStore(reducer, initialState)
 
 export default function App() {
   return (

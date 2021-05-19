@@ -7,8 +7,7 @@ const Home = (props) => {
   return (
     <View style={styles.container}>
       <View style={styles.textContainer}>
-        <Text>{props.state.count}</Text>
-        <Text>{props.state.num}</Text>
+        <Text>{props.state.image.map((i) => i.title)[1]}</Text>
       </View>
     </View>
   )
