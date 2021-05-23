@@ -1,5 +1,5 @@
 import React from "react"
-import Home from "./Components/Home"
+import Main from "./Components/MainComponent"
 //REDUX IMPORTS
 import { Provider } from "react-redux"
 import { store } from "./Redux/store"
@@ -17,7 +17,7 @@ export default function App() {
   return (
     <Provider store={store}>
       <View style={styles.container}>
-        <Home />
+        <Main />
       </View>
     </Provider>
   )
