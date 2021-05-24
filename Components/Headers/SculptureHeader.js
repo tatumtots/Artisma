@@ -1,36 +1,37 @@
 import React from "react"
 import { Icon } from 'react-native-elements'
-import SignUp from "../SignUp"
+import Sculpture from "../ArtismaGallery/Sculpture"
 import { createStackNavigator } from "@react-navigation/stack"
 
 const Stack = createStackNavigator()
 
-function SignUpScreen(props) {
+function SculptureScreen(props) {
     const {navigation} = props
     return(
         <Stack.Navigator>
         <Stack.Screen
         name='Artisma'
-        component={SignUp}
+        component={Sculpture}
         options={{
             headerTitle: "Artisma",
             headerStyle: {
-            backgroundColor: "#040720"
+            backgroundColor: "#001219"
             },
             headerTitleStyle: {
-            color: "red",
-            fontSize: 25,
-            marginLeft: "10%",
+                fontFamily: "Megrim-Regular",
+                color: "#F93737",
+                fontSize: 40,
+                marginLeft: "1%",
             },
             headerLeft: () => (
             <Icon
                 name= 'bars'
                 type= 'font-awesome'
                 iconStyle={{
-                color: "red",
-                margin: 15,
+                color: "#EBEBEB",
+                margin: 10,
                 }}
-                size= {25}
+                size= {40}
                 onPress={() => navigation.toggleDrawer()}
             />
             )
@@ -40,4 +41,4 @@ function SignUpScreen(props) {
     )
 }
 
-export default SignUpScreen
+export default SculptureScreen

@@ -1,36 +1,37 @@
 import React from "react"
 import { Icon } from 'react-native-elements'
-import Login from "../Login"
+import NewArtists from "../Artists/NewArtists"
 import { createStackNavigator } from "@react-navigation/stack"
 
 const Stack = createStackNavigator()
 
-function LoginScreen(props) {
+function NewArtistsScreen(props) {
     const {navigation} = props
     return(
         <Stack.Navigator>
         <Stack.Screen
         name='Artisma'
-        component={Login}
+        component={NewArtists}
         options={{
             headerTitle: "Artisma",
             headerStyle: {
-            backgroundColor: "#040720"
+            backgroundColor: "#001219"
             },
             headerTitleStyle: {
-            color: "red",
-            fontSize: 25,
-            marginLeft: "10%",
+                fontFamily: "Megrim-Regular",
+                color: "#F93737",
+                fontSize: 40,
+                marginLeft: "1%",
             },
             headerLeft: () => (
             <Icon
                 name= 'bars'
                 type= 'font-awesome'
                 iconStyle={{
-                color: "red",
-                margin: 15,
+                color: "#EBEBEB",
+                margin: 10,
                 }}
-                size= {25}
+                size= {40}
                 onPress={() => navigation.toggleDrawer()}
             />
             )
@@ -40,4 +41,4 @@ function LoginScreen(props) {
     )
 }
 
-export default LoginScreen
+export default NewArtistsScreen
