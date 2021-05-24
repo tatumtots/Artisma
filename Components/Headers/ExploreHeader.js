@@ -1,37 +1,36 @@
 import React from "react"
 import { Icon } from 'react-native-elements'
-import Home from "../Home"
+import Explore from "../Explore"
 import { createStackNavigator } from "@react-navigation/stack"
 
 const Stack = createStackNavigator()
 
-function HomeScreen(props) {
+function ExploreScreen(props) {
     const {navigation} = props
     return(
         <Stack.Navigator>
         <Stack.Screen
         name='Artisma'
-        component={Home}
+        component={Explore}
         options={{
             headerTitle: "Artisma",
             headerStyle: {
-            backgroundColor: "#001219"
+            backgroundColor: "#040720"
             },
             headerTitleStyle: {
-                fontFamily: "Megrim-Regular",
-                color: "#F93737",
-                fontSize: 40,
-                marginLeft: "1%",
+            color: "red",
+            fontSize: 25,
+            marginLeft: "10%",
             },
             headerLeft: () => (
             <Icon
                 name= 'bars'
                 type= 'font-awesome'
                 iconStyle={{
-                color: "#EBEBEB",
-                margin: 10,
+                color: "red",
+                margin: 15,
                 }}
-                size= {40}
+                size= {25}
                 onPress={() => navigation.toggleDrawer()}
             />
             )
@@ -41,4 +40,4 @@ function HomeScreen(props) {
     )
 }
 
-export default HomeScreen
+export default ExploreScreen

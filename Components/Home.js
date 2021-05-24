@@ -15,7 +15,7 @@ const Home = (props) => {
   return (
     <View style={styles.container}>
       <View style={styles.textContainer}>
-        <Text>{props.state.image.map((i) => i.title)[1]}</Text>
+        <Text style={{ fontFamily: 'Cairo-Regular', color: "#F93737", fontSize: 50}}>{props.state.image.map((i) => i.title)[1]}</Text>
       </View>
     </View>
   )
