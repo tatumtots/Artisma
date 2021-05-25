@@ -1,6 +1,5 @@
 import React, { Component } from "react"
 import { View, Platform } from "react-native"
-import { Icon } from "react-native-elements"
 import HomeScreen from "./Headers/HomeHeader"
 import DrawingScreen from "./Headers/DrawingHeader"
 import PaintingScreen from "./Headers/PaintingHeader"
@@ -24,7 +23,7 @@ function MainNavigator() {
     <NavigationContainer>
       <Drawer.Navigator
         drawerContent={(props) => <CustomDrawerContentComponent {...props} />}
-      >
+      > 
         <Drawer.Screen name='Home' component={HomeScreen} />
         <Drawer.Screen name='Painting' component={PaintingScreen} />
         <Drawer.Screen name='Drawing' component={DrawingScreen} />
@@ -52,8 +51,7 @@ class Main extends Component {
           style={{
             backgroundColor: "#272727",
           }}
-        />
-        <BottomTabs />
+        ></MainNavigator>
       </View>
     )
   }

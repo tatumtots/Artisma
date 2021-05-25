@@ -1,6 +1,6 @@
 import React from "react"
 import { StyleSheet, TextInput, View, Text, Button, Image } from "react-native"
-
+import BottomTabs from "./BottomTabs"
 import { connect } from "react-redux"
 
 function mapStateToProps(state) {
@@ -60,6 +60,7 @@ const Home = (props) => {
           borderWidth: 1,
         }}
       ></View>
+      
     </View>
   )
 }

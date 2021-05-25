@@ -1,8 +1,9 @@
 import React from "react"
 import { Icon } from "react-native-elements"
-import Home from "../Home"
+import BottomTabs from "../BottomTabs"
 
 import { createStackNavigator } from "@react-navigation/stack"
+import { SafeAreaView } from "react-native"
 
 const Stack = createStackNavigator()
 
@@ -12,7 +13,7 @@ function HomeScreen(props) {
     <Stack.Navigator>
       <Stack.Screen
         name='Artisma'
-        component={Home}
+        component={BottomTabs}
         options={{
           headerTitle: "Artisma",
           headerStyle: {
