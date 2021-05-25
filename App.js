@@ -22,6 +22,7 @@ const getFonts = () => {
     // Header Font
     "Cairo-Regular": require("./assets/fonts/Cairo-Regular.ttf"),
     "Cairo-SemiBold": require("./assets/fonts/Cairo-SemiBold.ttf"),
+
     "Cairo-Bold": require("./assets/fonts/Cairo-Bold.ttf"),
 
     "Assistant-Regular": require("./assets/fonts/Assistant-Regular.ttf"),
@@ -31,9 +32,9 @@ const getFonts = () => {
 }
 
 export default function App() {
-  const [fonstLoaded, setFontsLoaded] = useState(false)
+  const [fontsLoaded, setFontsLoaded] = useState(false)
 
-  if(fonstLoaded) {
+  if (fontsLoaded) {
     return (
       <Provider store={store}>
         <View style={styles.container}>
@@ -41,11 +42,11 @@ export default function App() {
         </View>
       </Provider>
     )
-    } else {
-      return(
-        <AppLoading startAsync={getFonts} onFinish={() => setFontsLoaded(true)} />
-      )
-    }
+  } else {
+    return (
+      <AppLoading startAsync={getFonts} onFinish={() => setFontsLoaded(true)} />
+    )
+  }
 }
 
 {

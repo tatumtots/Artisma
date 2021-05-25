@@ -1,7 +1,7 @@
 import React from "react"
 import { Text, View } from "react-native"
 
-export default function App() {
+export default function Flex() {
   return (
     <View
       style={{
@@ -21,6 +21,8 @@ export default function App() {
           flex: 1,
           justifyContent: "center",
           alignItems: "center",
+          borderColor: "black",
+          borderWidth: 1,
         }}
       >
         <Text>1</Text>
@@ -31,6 +33,8 @@ export default function App() {
           flex: 2,
           justifyContent: "center",
           alignItems: "center",
+          borderColor: "black",
+          borderWidth: 1,
         }}
       >
         <Text>2</Text>
@@ -41,6 +45,8 @@ export default function App() {
           flex: 1,
           justifyContent: "center",
           alignItems: "center",
+          borderColor: "black",
+          borderWidth: 1,
         }}
       >
         <Text>3</Text>
