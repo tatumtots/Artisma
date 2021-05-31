@@ -1,6 +1,6 @@
 import React from "react"
-import { StyleSheet, TextInput, View, Text, Button, Image } from "react-native"
-import BottomTabs from "./BottomTabs"
+import { StyleSheet, TextInput, View, Text, Button, Image, TouchableOpacity } from "react-native"
+
 import { connect } from "react-redux"
 
 function mapStateToProps(state) {
@@ -10,6 +10,7 @@ function mapStateToProps(state) {
 
 const Home = (props) => {
   // console.log("this is PROPS:", props)
+  const {navigation} = props
   return (
     <View style={styles.container}>
       <View
@@ -25,10 +26,12 @@ const Home = (props) => {
           borderWidth: 1,
         }}
       >
+      <TouchableOpacity onPress={() => navigation.navigate("Painting")}>
         <Image
           style={{ width: 120, height: 120, borderRadius: 400 / 2 }}
           source={props.state.image.map((i) => i.image)[2]}
         />
+        </TouchableOpacity>
       </View>
       <View
         style={{
