@@ -28,7 +28,8 @@ function MainBottomTabs() {
           activeTintColor: "#F93737",
           inactiveTintColor: "#F93737",
           activeBackgroundColor: "#001219",
-          inactiveBackgroundColor: "#001219"
+          inactiveBackgroundColor: "#001219",
+          showLabel: false
         }}
         
       >
