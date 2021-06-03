@@ -1,15 +1,18 @@
-import React, { useRef } from "react"
+import React from "react"
 import { 
   StyleSheet, 
+  TextInput, 
   View, 
   Text, 
+  Button, 
+  Image, 
   TouchableOpacity, 
   ScrollView, 
   SafeAreaView, 
   ImageBackground, 
   Dimensions, 
-  Animated 
-} from "react-native"
+  Animated } from "react-native"
+import { Card } from "react-native-elements"
 
 import { connect } from "react-redux"
 
@@ -18,19 +21,16 @@ function mapStateToProps(state) {
   return { state }
 }
 
-const Offset = 40
-const ItemWidth = Dimensions.get("window").width - (Offset * 2)
+const ItemWidth = Dimensions.get("window").width
 const ItemHeight = 250
 
 const cards = [
   {id: 1, title: "Explore Digital Paintings", posterUrl: require("../assets/images/galaxyraccoon.jpg")},
-  {id: 2, title: "Find Art That Speaks", posterUrl: require("../assets/images/blue_volcano.jpg")},
+  {id: 2, title: "Find Art That Speaks to You", posterUrl: require("../assets/images/blue_volcano.jpg")},
   {id: 3, title: "Sell Your Pieces", posterUrl: require("../assets/images/burnt-trash.jpg")},
 ]
 
 function Home() {
-  const scrollX = useRef(new Animated.Value(0)).current
-
   return(
     <SafeAreaView style={styles.bannerContainer}>
       <ScrollView
@@ -40,40 +40,15 @@ function Home() {
       bounces={false}
       style={{ marginTop:0, paddingHorizontal: 0 }}
       showsHorizontalScrollIndicator={false}
-      disableIntervalMomentum
-      onScroll={Animated.event(
-        [{ nativeEvent: { contentOffset: { x: scrollX }}}],
-        {useNativeDriver: false}
-      )}
       scrollEventThrottle={20}
       >
         {cards.map((item, idx) => {
-          const inputRange = [
-            (idx - 1) * ItemWidth,
-            idx * ItemWidth,
-            (idx + 1) * ItemWidth,
-          ]
-
-          const translate = scrollX.interpolate({
-            inputRange,
-            outputRange: [0.85, 1, 0.85],
-          })
-
-          const opacity = scrollX.interpolate({
-            inputRange,
-            outputRange: [0.5, 1, 0.5],
-          })
-
           return(
-            <Animated.View
+            <View
               key={item.id}
               style={{
                 width: ItemWidth,
                 height: ItemHeight,
-                marginLeft: idx === 0 ? Offset : undefined,
-                marginRight: idx === cards.length -1 ? Offset: undefined,
-                opacity: opacity,
-                transform: [{ scale: translate}]
               }}
             >
               <ImageBackground 
@@ -84,7 +59,7 @@ function Home() {
                 <Text style={styles.bannerText }>{item.title}</Text>
               </View>
               
-            </Animated.View>
+            </View>
           )
         })}
       </ScrollView>
@@ -113,7 +88,7 @@ const styles = StyleSheet.create({
   bannerText: {
     fontFamily: "Cairo-Regular",
     color: "#EBEBEB",
-    fontSize: 26,
+    fontSize: 30,
     backgroundColor: 'rgba(0, 18, 25, 0.60)',
     paddingLeft: 10,
     paddingRight: 10,
