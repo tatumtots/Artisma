@@ -154,7 +154,7 @@ const styles = StyleSheet.create({
     width: "100%",
     textAlign: "left",
     paddingLeft: 10,
-    fontSize: 20,
+    fontSize: 25,
     fontFamily: "Cairo-Regular",
     color: "#EBEBEB",
     backgroundColor: "rgba(0, 18, 25, 0.60)",
@@ -165,7 +165,7 @@ const styles = StyleSheet.create({
   },
   bannerTextContainer: {
     position: "absolute",
-    top: 10,
+    top: 0,
     left: 0,
     right: 0,
     bottom: 0,
