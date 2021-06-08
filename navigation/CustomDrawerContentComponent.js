@@ -110,6 +110,15 @@ function CustomDrawerContentComponent(props) {
             New
           </Text>
         </View>
+        {/* Login Navigator */}
+        <View style={styles.drawerItem}>
+          <Text
+            style={styles.drawerItemText}
+            onPress={() => navigation.navigate("Login")}
+          >
+            Login
+          </Text>
+        </View>
       </SafeAreaView>
     </ScrollView>
   )

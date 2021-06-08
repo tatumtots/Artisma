@@ -13,149 +13,166 @@ import Photography from "../Components/ArtismaGallery/Photography"
 import Sculpture from "../Components/ArtismaGallery/Sculpture"
 import NewArtists from "../Components/Artists/NewArtists"
 import PopularArtists from "../Components/Artists/PopularArtists"
+import AccountSettings from "../Components/Profile/AccountSettings"
+import Messages from "../Components/Profile/Messages"
+import Orders from "../Components/Profile/Orders"
+import Login from "../Components/Login"
 
+const Stack = createStackNavigator()
 
-const Stack  = createStackNavigator()
-
-const MainStackNavigator = ({navigation}) => {
-    return(
-        <Stack.Navigator
-            screenOptions={{
-                headerTitle: "Artisma",
-                headerStyle: {
-                    backgroundColor: "#001219",
-                },
-                headerTitleStyle: {
-                    fontFamily: "Megrim-Regular",
-                    color: "#F93737",
-                    fontSize: 40,
-                    marginLeft: "1%",
-                },
-                headerLeft: () => (
-                    <Icon
-                    name='bars'
-                    type='font-awesome'
-                    iconStyle={{
-                        color: "#EBEBEB",
-                        margin: 10,
-                    }}
-                    size={30}
-                    onPress={() => navigation.toggleDrawer()}
-                    />
-                ),
+const MainStackNavigator = ({ navigation }) => {
+  return (
+    <Stack.Navigator
+      screenOptions={{
+        headerTitle: "Artisma",
+        headerStyle: {
+          backgroundColor: "#001219",
+        },
+        headerTitleStyle: {
+          fontFamily: "Megrim-Regular",
+          color: "#F93737",
+          fontSize: 40,
+          marginLeft: "1%",
+        },
+        headerLeft: () => (
+          <Icon
+            name='bars'
+            type='font-awesome'
+            iconStyle={{
+              color: "#EBEBEB",
+              margin: 10,
             }}
-        >
-            <Stack.Screen name="Home" component={Home} />
-            <Stack.Screen name="Digital" component={Digital} />
-            <Stack.Screen name="Drawing" component={Drawing} />
-            <Stack.Screen name="Painting" component={Painting} />
-            <Stack.Screen name="Photography" component={Photography} />
-            <Stack.Screen name="Sculpture" component={Sculpture} />
-            <Stack.Screen name="New" component={NewArtists} />
-            <Stack.Screen name="Popular" component={PopularArtists} />
-        </Stack.Navigator>
-    )
+            size={30}
+            onPress={() => navigation.toggleDrawer()}
+          />
+        ),
+      }}
+    >
+      <Stack.Screen name='Home' component={Home} />
+      <Stack.Screen name='Digital' component={Digital} />
+      <Stack.Screen name='Drawing' component={Drawing} />
+      <Stack.Screen name='Painting' component={Painting} />
+      <Stack.Screen name='Photography' component={Photography} />
+      <Stack.Screen name='Sculpture' component={Sculpture} />
+      <Stack.Screen name='New' component={NewArtists} />
+      <Stack.Screen name='Popular' component={PopularArtists} />
+      <Stack.Screen name='Login' component={Login} />
+    </Stack.Navigator>
+  )
 }
 
-const ExploreStackNavigator = ({navigation}) => {
-    return(
-        <Stack.Navigator
-            screenOptions={{
-                headerTitle: "Explore",
-                headerStyle: {
-                    backgroundColor: "#001219",
-                },
-                headerTitleStyle: {
-                    fontFamily: "Megrim-Regular",
-                    color: "#F93737",
-                    fontSize: 40,
-                    marginLeft: "1%",
-                },
-                headerLeft: () => (
-                    <Icon
-                    name='bars'
-                    type='font-awesome'
-                    iconStyle={{
-                        color: "#EBEBEB",
-                        margin: 10,
-                    }}
-                    size={30}
-                    onPress={() => navigation.toggleDrawer()}
-                    />
-                ),
+// const profileNavigator = ({ navigation }) => {
+//   return (
+//     <Stack.Navigator>
+//       <Stack.Screen name='Account Settings' component={AccountSettings} />
+//       <Stack.Screen name='Messages' component={Messages} />
+//       <Stack.Screen name='Orders' component={Orders} />
+//     </Stack.Navigator>
+//   )
+// }
+
+const ExploreStackNavigator = ({ navigation }) => {
+  return (
+    <Stack.Navigator
+      screenOptions={{
+        headerTitle: "Explore",
+        headerStyle: {
+          backgroundColor: "#001219",
+        },
+        headerTitleStyle: {
+          fontFamily: "Megrim-Regular",
+          color: "#F93737",
+          fontSize: 40,
+          marginLeft: "1%",
+        },
+        headerLeft: () => (
+          <Icon
+            name='bars'
+            type='font-awesome'
+            iconStyle={{
+              color: "#EBEBEB",
+              margin: 10,
             }}
-        >
-            <Stack.Screen name="Explore" component={Explore} />
-        </Stack.Navigator>
-    )
+            size={30}
+            onPress={() => navigation.toggleDrawer()}
+          />
+        ),
+      }}
+    >
+      <Stack.Screen name='Explore' component={Explore} />
+    </Stack.Navigator>
+  )
 }
 
-const ProfileStackNavigator = ({navigation}) => {
-    return(
-        <Stack.Navigator
-            screenOptions={{
-                headerTitle: "Account",
-                headerStyle: {
-                    backgroundColor: "#001219",
-                },
-                headerTitleStyle: {
-                    fontFamily: "Megrim-Regular",
-                    color: "#F93737",
-                    fontSize: 40,
-                    marginLeft: "1%",
-                },
-                headerLeft: () => (
-                    <Icon
-                    name='bars'
-                    type='font-awesome'
-                    iconStyle={{
-                        color: "#EBEBEB",
-                        margin: 10,
-                    }}
-                    size={30}
-                    onPress={() => navigation.toggleDrawer()}
-                    />
-                ),
+const ProfileStackNavigator = ({ navigation }) => {
+  return (
+    <Stack.Navigator
+      screenOptions={{
+        headerTitle: "Account",
+        headerStyle: {
+          backgroundColor: "#001219",
+        },
+        headerTitleStyle: {
+          fontFamily: "Megrim-Regular",
+          color: "#F93737",
+          fontSize: 40,
+          marginLeft: "1%",
+        },
+        headerLeft: () => (
+          <Icon
+            name='bars'
+            type='font-awesome'
+            iconStyle={{
+              color: "#EBEBEB",
+              margin: 10,
             }}
-        >
-            <Stack.Screen name="Profile" component={Profile} />
-        </Stack.Navigator>
-    )
+            size={30}
+            onPress={() => navigation.toggleDrawer()}
+          />
+        ),
+      }}
+    >
+      <Stack.Screen name='Profile' component={Profile} />
+    </Stack.Navigator>
+  )
 }
 
-const CartStackNavigator = ({navigation}) => {
-    return(
-        <Stack.Navigator
-            screenOptions={{
-                headerTitle: "Checkout",
-                headerStyle: {
-                    backgroundColor: "#001219",
-                },
-                headerTitleStyle: {
-                    fontFamily: "Megrim-Regular",
-                    color: "#F93737",
-                    fontSize: 40,
-                    marginLeft: "1%",
-                },
-                headerLeft: () => (
-                    <Icon
-                    name='bars'
-                    type='font-awesome'
-                    iconStyle={{
-                        color: "#EBEBEB",
-                        margin: 10,
-                    }}
-                    size={30}
-                    onPress={() => navigation.toggleDrawer()}
-                    />
-                ),
+const CartStackNavigator = ({ navigation }) => {
+  return (
+    <Stack.Navigator
+      screenOptions={{
+        headerTitle: "Checkout",
+        headerStyle: {
+          backgroundColor: "#001219",
+        },
+        headerTitleStyle: {
+          fontFamily: "Megrim-Regular",
+          color: "#F93737",
+          fontSize: 40,
+          marginLeft: "1%",
+        },
+        headerLeft: () => (
+          <Icon
+            name='bars'
+            type='font-awesome'
+            iconStyle={{
+              color: "#EBEBEB",
+              margin: 10,
             }}
-        >
-            <Stack.Screen name="Cart" component={Cart} />
-        </Stack.Navigator>
-    )
+            size={30}
+            onPress={() => navigation.toggleDrawer()}
+          />
+        ),
+      }}
+    >
+      <Stack.Screen name='Cart' component={Cart} />
+    </Stack.Navigator>
+  )
 }
 
-
-
-export { MainStackNavigator, ExploreStackNavigator, ProfileStackNavigator, CartStackNavigator } 
+export {
+  MainStackNavigator,
+  ExploreStackNavigator,
+  ProfileStackNavigator,
+  CartStackNavigator,
+}
