@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
 import Ionicons from "@expo/vector-icons/Ionicons"
-import { MainStackNavigator, ExploreStackNavigator, ProfileStackNavigator, CartStackNavigator} from "./StackNavigator"
+import { HomeStackNavigator, ExploreStackNavigator, ProfileStackNavigator, CartStackNavigator} from "./StackNavigator"
 
 const Tab = createBottomTabNavigator()
 
@@ -33,7 +33,7 @@ function MainBottomTabs() {
         }}
         
       >
-        <Tab.Screen name='Home' component={MainStackNavigator} />
+        <Tab.Screen name='Home' component={HomeStackNavigator} />
         <Tab.Screen name='Explore' component={ExploreStackNavigator} />
         <Tab.Screen name='Profile' component={ProfileStackNavigator} />
         <Tab.Screen name='Cart' component={CartStackNavigator} />

@@ -1,7 +1,33 @@
 import React, { useState } from "react"
 import { StyleSheet, TextInput, View, Text, Button, Image } from "react-native"
+import { useDispatch } from "react-redux"
+import {signIn} from "../Redux/Login/authSlice"
 
-export default function Login() {
+
+export default function Login({navigation}) {
+
+  const dispatch = useDispatch()
+
+  const [formInput, setFormInput] = useState({
+    email:null,
+    password:null
+  })
+  
+  function inputChanged(e){
+    setFormInput({
+      // spread the original state
+      ...formInput,
+      // Update target values based on name
+      [e.target.name]:e.target.value
+    })
+  }
+
+  function submit(e){
+    // submits the payload for signIn in authSlice
+    dispatch(signIn(formInput));
+    e.preventDefault();
+  }
+
   return (
     <View style={styles.viewBackground}>
       <View>
@@ -15,9 +41,11 @@ export default function Login() {
 
       <Text style={styles.inputHeaderEmail}>Email</Text>
       <TextInput
+        value={formInput.email}
         style={styles.input}
         placeholder='example@example.com'
         placeholderTextColor={"#D7EB5A"}
+        onChange={inputChanged}
       />
 
       <View style={{ flexDirection: "row" }}>
@@ -25,9 +53,11 @@ export default function Login() {
         <Text style={styles.forgotPassword}>Forgot password?</Text>
       </View>
       <TextInput
+        value={formInput.password}
         style={styles.input}
         placeholder='password'
         placeholderTextColor={"#D7EB5A"}
+        onChange={inputChanged}
       />
 
       <Button
@@ -41,6 +71,7 @@ export default function Login() {
           padding: 18,
           borderRadius: 17,
         }}
+        onPress={submit}
       />
 
       <View style={{ flexDirection: "row" }}>

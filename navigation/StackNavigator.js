@@ -1,5 +1,6 @@
-import React from "react"
+import React, { useState} from "react"
 import { Icon } from "react-native-elements"
+import { SafeAreaView } from "react-native"
 import { createStackNavigator } from "@react-navigation/stack"
 
 import Home from "../Components/Home"
@@ -17,10 +18,23 @@ import AccountSettings from "../Components/Profile/AccountSettings"
 import Messages from "../Components/Profile/Messages"
 import Orders from "../Components/Profile/Orders"
 import Login from "../Components/Login"
+import SignUp from "../Components/SignUp"
 
 const Stack = createStackNavigator()
 
-const MainStackNavigator = ({ navigation }) => {
+
+
+const LoginStackNavigator = ({navigate}) => {
+  return(
+  <Stack.Navigator>
+    <Stack.Screen name='Login' component={Login} />
+    <Stack.Screen name='SignUp' component={SignUp} />
+  </Stack.Navigator>
+  )
+}
+
+const HomeStackNavigator = ({ navigation }) => {
+
   return (
     <Stack.Navigator
       screenOptions={{
@@ -48,15 +62,18 @@ const MainStackNavigator = ({ navigation }) => {
         ),
       }}
     >
-      <Stack.Screen name='Home' component={Home} />
-      <Stack.Screen name='Digital' component={Digital} />
-      <Stack.Screen name='Drawing' component={Drawing} />
-      <Stack.Screen name='Painting' component={Painting} />
-      <Stack.Screen name='Photography' component={Photography} />
-      <Stack.Screen name='Sculpture' component={Sculpture} />
-      <Stack.Screen name='New' component={NewArtists} />
-      <Stack.Screen name='Popular' component={PopularArtists} />
-      <Stack.Screen name='Login' component={Login} />
+    
+        <Stack.Screen name='Home' component={Home} />
+        <Stack.Screen name='Digital' component={Digital} />
+        <Stack.Screen name='Drawing' component={Drawing} />
+        <Stack.Screen name='Painting' component={Painting} />
+        <Stack.Screen name='Photography' component={Photography} />
+        <Stack.Screen name='Sculpture' component={Sculpture} />
+        <Stack.Screen name='New' component={NewArtists} />
+        <Stack.Screen name='Popular' component={PopularArtists} />
+        <Stack.Screen name='Login' component={Login} />
+      
+      
     </Stack.Navigator>
   )
 }
@@ -171,7 +188,8 @@ const CartStackNavigator = ({ navigation }) => {
 }
 
 export {
-  MainStackNavigator,
+  LoginStackNavigator,
+  HomeStackNavigator,
   ExploreStackNavigator,
   ProfileStackNavigator,
   CartStackNavigator,

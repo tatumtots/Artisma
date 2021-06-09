@@ -2,10 +2,19 @@ import React, { Component } from "react"
 import { ScrollView, Text, View, StyleSheet } from "react-native"
 import SafeAreaView from "react-native-safe-area-view"
 import { Icon } from "react-native-elements"
+import { useDispatch } from "react-redux"
+import {signOut} from "../Redux/Login/authSlice"
 
 function CustomDrawerContentComponent(props) {
   const { navigation } = props
 
+  const dispatch = useDispatch
+
+  function logout(e){
+    // submits the payload for signIn in authSlice
+    dispatch(signOut());
+    e.preventDefault();
+  }
   return (
     <ScrollView style={{ backgroundColor: "#1E2E33" }}>
       <SafeAreaView

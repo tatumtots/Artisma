@@ -4,7 +4,7 @@ import Main from "./Components/MainComponent"
 import { AppLoading } from "expo"
 //REDUX IMPORTS
 import { Provider } from "react-redux"
-import { store } from "./Redux/store"
+import store from "./Redux/store"
 import { StyleSheet, View } from "react-native"
 
 //HOOKS EXAMPLE

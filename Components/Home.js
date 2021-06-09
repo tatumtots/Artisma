@@ -32,7 +32,7 @@ function Home() {
         itemsPerInterval={1}
         items={[
           {
-            id: 1, title: "Explore Digital Paintings", posterUrl: require("../assets/images/galaxyraccoon.jpg")
+            id: 1, title: "Explore Original Paintings", posterUrl: require("../assets/images/galaxyraccoon.jpg")
           },
           {
             id: 2, title: "Find Art That Speaks to You", posterUrl: require("../assets/images/blue_volcano.jpg")
