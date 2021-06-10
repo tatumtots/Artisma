@@ -7,6 +7,7 @@ import {
   Flatlist,
   Image,
 } from "react-native"
+import FavoritesCarousel from "./FavoritesCarousel"
 import { Icon } from "react-native-elements"
 
 import { connect } from "react-redux"
@@ -19,9 +20,10 @@ function mapStateToProps(state) {
 export default function UserProfile(props) {
   console.log(`this is LLLLL: ${props}`)
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
       <View style={styles.headerView}>
         <View style={styles.editBox}>
+
           <Text style={styles.editText}>Edit Profile</Text>
         </View>
         <View style={styles.profileImage}>
@@ -51,13 +53,15 @@ export default function UserProfile(props) {
       {/**FAVORITES */}
       <View style={styles.favoritesView}>
         <Text style={styles.favoritesHeader}>Favorites</Text>
-        <View style={styles.favoritesBox}></View>
+        {/* <View style={styles.favoritesBox}> */}
+        <FavoritesCarousel/>
+        {/* </View> */}
       </View>
       {/* <Flatlist>flatlist data link to stack navigator</Flatlist> */}
       <View style={styles.flatlist}>
         <Text>3</Text>
       </View>
-    </View>
+    </ScrollView>
   )
 }
 
@@ -89,12 +93,13 @@ const styles = StyleSheet.create({
     color: "#929292",
   },
   profileImage: {
-    width: 130,
-    height: 130,
+    width: 90,
+    height: 90,
     borderRadius: 100,
     backgroundColor: "blue",
     alignSelf: "center",
-    margin: 8,
+    marginBottom: 5,
+    marginTop:2
   },
   location: {
     flexDirection: "row",
@@ -106,8 +111,8 @@ const styles = StyleSheet.create({
   username: {
     alignSelf: "center",
     color: "#EBEBEB",
-    fontFamily: "Cairo-Regular",
-    fontSize: 30,
+    fontFamily: "Cairo-Bold",
+    fontSize:20,
   },
   bioView: {
     margin: 10,
@@ -116,13 +121,13 @@ const styles = StyleSheet.create({
     color: "#EBEBEB",
   },
   favoritesView: {
-    flex: 0.7,
+    flex: 1,
     borderColor: "black",
     borderWidth: 1,
   },
   favoritesBox: {
     alignItems: "center",
-    height: 400,
+    height:200,
     width: "100%",
     backgroundColor: "#1E2E33",
   },
@@ -133,7 +138,7 @@ const styles = StyleSheet.create({
   },
   flatlist: {
     backgroundColor: "green",
-    flex: 0.3,
+    flex: 1,
     justifyContent: "center",
     alignItems: "center",
     borderColor: "black",
