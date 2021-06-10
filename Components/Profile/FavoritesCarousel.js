@@ -1,7 +1,6 @@
 import React from "react"
 import {
     View,
-    Text,
     ScrollView,
     Animated,
     SafeAreaView,
@@ -30,6 +29,8 @@ const favorites = [
 ]
 
 export default function FavoritesCarousel() {
+    const scrollX = React.useRef(new Animated.Value(0)).current
+
     return(
         <SafeAreaView style={styles.container}>
             <ScrollView
@@ -39,23 +40,37 @@ export default function FavoritesCarousel() {
                 bounces={false}
                 style={styles.carouselView}
                 showsHorizontalScrollIndicator={false}
+                disableIntervalMomentum
+                onScroll={Animated.event (
+                    [{nativeEvent: { contentOffset: { x:scrollX } } }],
+                    {useNativeDriver: false}
+                )}
                 scrollEventThrottle={12}
             >
                 {favorites.map((item, index) => {
+
                     return(
-                        <View key={index} style={styles.cardBody}>
+                        <Animated.View 
+                            key={index} 
+                            style={{
+                                width: itemWidth,
+                                height: itemHeight,
+                                paddingLeft: 5,
+                                paddingRight: 10,
+                                marginLeft: index === 0 ? offset : undefined,
+                                marginRight: index === favorites.length - 1 ? offset : undefined,
+                            }}
+                        >
                             <ImageBackground 
                                 source={item.posterUrl}
                                 style={{
                                     flex:1,
                                     resizeMode: "cover",
                                     justifyContent: "center",
-                                    shadowColor: '#202020',
-  shadowOffset: {width: 0, height: 0},
-  shadowRadius: 5,
+                                    
                                 }}
                             />
-                        </View>
+                        </Animated.View>
                     )
                 })}
             </ScrollView>
@@ -73,11 +88,5 @@ const styles = StyleSheet.create({
         marginBottom: 20,
         marginLeft:5,
         paddingHorizontal: 0
-    },
-    cardBody:{
-        width: itemWidth,
-        height: itemHeight,
-        paddingLeft: 5,
-        paddingRight: 10,
-    },
+    }
 })
