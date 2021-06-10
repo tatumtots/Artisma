@@ -26,8 +26,12 @@ const Stack = createStackNavigator()
 
 const LoginStackNavigator = ({navigate}) => {
   return(
-  <Stack.Navigator>
-    <Stack.Screen name='Login' component={Login} />
+  <Stack.Navigator
+  screenOptions={{
+        headerShown:false
+  }}
+  >
+    <Stack.Screen options={{title: null}} name='Login' component={Login} />
     <Stack.Screen name='SignUp' component={SignUp} />
   </Stack.Navigator>
   )

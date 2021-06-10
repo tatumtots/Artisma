@@ -1,8 +1,10 @@
 import React, { useState } from "react"
-import { StyleSheet, TextInput, View, Text, Button, Image } from "react-native"
+import { StyleSheet, TextInput, View, Text, ImageBackground, SafeAreaView, ScrollView } from "react-native"
+import { Button } from "react-native-elements"
 import { useDispatch } from "react-redux"
 import {signIn} from "../Redux/Login/authSlice"
 
+const image = require('../assets/images/smokebackground.jpg')
 
 export default function Login({navigation}) {
 
@@ -29,14 +31,21 @@ export default function Login({navigation}) {
   }
 
   return (
+    
+    
     <View style={styles.viewBackground}>
-      <View>
-        {/* <Image
+    <ImageBackground source={require("../assets/images/smokebackground2.jpg")} style={styles.image}>
+      {/* <View>
+        <Image
           source={require("../assets/images/smoke-background.jpg")}
           style={{ width: 200, height: 200 }}
-        /> */}
+        /> 
+      </View> */}
+      <View style={styles.headerContainer}>
+        <Text style={styles.headerTitle}>
+          Artisma
+        </Text>
       </View>
-
       <Text style={styles.loginHeader}>Login</Text>
 
       <Text style={styles.inputHeaderEmail}>Email</Text>
@@ -44,7 +53,7 @@ export default function Login({navigation}) {
         value={formInput.email}
         style={styles.input}
         placeholder='example@example.com'
-        placeholderTextColor={"#D7EB5A"}
+        placeholderTextColor={"#EBEBEB"}
         onChange={inputChanged}
       />
 
@@ -56,23 +65,23 @@ export default function Login({navigation}) {
         value={formInput.password}
         style={styles.input}
         placeholder='password'
-        placeholderTextColor={"#D7EB5A"}
+        placeholderTextColor={"#EBEBEB"}
         onChange={inputChanged}
       />
-
+      <View style={styles.button}>
       <Button
-        title={"Login"}
-        titleStyle={{ color: "#232323", fontSize: 24 }}
+        title={"Continue"}
+        titleStyle={{ color: "#EBEBEB", fontSize:20 }}
         buttonStyle={{
-          backgroundColor: "#D7EB5A",
-          marginTop: 38,
-          marginLeft: 25,
-          marginRight: 25,
-          padding: 18,
-          borderRadius: 17,
+          backgroundColor: "#F93737",
+          marginTop: 50,
+          marginLeft: 5,
+          marginRight: 5,
+          borderRadius: 5,
         }}
         onPress={submit}
       />
+      </View>
 
       <View style={{ flexDirection: "row" }}>
         <Text style={styles.noAccount}>Don't have an account?</Text>
@@ -83,40 +92,43 @@ export default function Login({navigation}) {
           Sign Up
         </Text>
       </View>
+      </ImageBackground>
     </View>
+    
   )
 }
 
 const styles = StyleSheet.create({
   viewBackground: {
     flex: 1,
-    backgroundColor: "#1E2E33",
+    flexDirection: 'column'
   },
   loginHeader: {
     fontFamily: "Assistant-Regular",
     fontSize: 35,
-    color: "#D7EB5A",
-    marginLeft: 30,
-    marginBottom: 20,
-    marginTop: 40,
+    color: "#EBEBEB",
+    marginLeft: 40,
+    marginBottom: 30,
+    marginTop: 20,
+
   },
   inputHeaderEmail: {
     fontFamily: "Assistant-Regular",
     fontSize: 20,
-    color: "#D7EB5A",
-    marginLeft: 30,
+    color: "#EBEBEB",
+    marginLeft: 40,
     marginBottom: 20,
   },
   inputHeaderPassword: {
-    marginLeft: 30,
+    marginLeft: 40,
     fontFamily: "Assistant-Regular",
     fontSize: 20,
-    color: "#D7EB5A",
+    color: "#EBEBEB",
     marginBottom: 20,
   },
   input: {
-    marginLeft: 20,
-    marginRight: 20,
+    marginLeft: 30,
+    marginRight: 30,
     marginBottom: 30,
     borderBottomColor: "#F93737",
     borderBottomWidth: 2,
@@ -125,23 +137,49 @@ const styles = StyleSheet.create({
     color: "#F93737",
   },
   forgotPassword: {
-    marginLeft: 140,
+    marginLeft: 130,
     fontFamily: "Assistant-Regular",
     fontSize: 15,
-    color: "#78797B",
+    color: "#00c8f8",
   },
   noAccount: {
-    marginLeft: 30,
+    marginLeft: "20%",
     fontFamily: "Assistant-Regular",
     fontSize: 15,
-    color: "#78797B",
+    color: "#EBEBEB",
     marginTop: 30,
+    marginBottom: 40,
   },
   signUp: {
-    marginLeft: 120,
+    marginLeft: 20,
     fontFamily: "Assistant-Regular",
     fontSize: 15,
     color: "#00c8f8",
     marginTop: 30,
   },
+  image: {
+    flex: 1,
+    resizeMode: 'cover',
+    justifyContent: 'center',
+    
+  },
+  headerContainer:{
+    flex:1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop:30 
+  },
+  headerTitle: {
+    fontFamily: "Megrim-Regular",
+    color: "#F93737",
+    fontSize: 50,
+  }, 
+  button:{
+    flex:1,
+    width: 200,
+    height: 80,
+    marginLeft: "25%",
+    marginRight: "25%",
+    paddingTop: 10,
+  }
 })
