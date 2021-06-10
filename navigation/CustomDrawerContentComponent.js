@@ -8,7 +8,7 @@ import {signOut} from "../Redux/Login/authSlice"
 function CustomDrawerContentComponent(props) {
   const { navigation } = props
 
-  const dispatch = useDispatch
+  const dispatch = useDispatch()
 
   function logout(e){
     // submits the payload for signIn in authSlice
@@ -122,10 +122,10 @@ function CustomDrawerContentComponent(props) {
         {/* Login Navigator */}
         <View style={styles.drawerItem}>
           <Text
-            style={styles.drawerItemText}
-            onPress={() => navigation.navigate("Login")}
+            style={styles.logoutText}
+            onPress={logout}
           >
-            Login
+            Logout
           </Text>
         </View>
       </SafeAreaView>
@@ -162,6 +162,13 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontFamily: "Assistant-Regular",
   },
+  logoutText:{
+    textAlign: "center",
+    color: "#929292",
+    fontSize: 40,
+    fontFamily: "Megrim-Regular",
+    paddingTop: "25%"
+  }
 })
 
 export default CustomDrawerContentComponent

@@ -4,8 +4,6 @@ import { Button } from "react-native-elements"
 import { useDispatch } from "react-redux"
 import {signIn} from "../Redux/Login/authSlice"
 
-const image = require('../assets/images/smokebackground.jpg')
-
 export default function Login({navigation}) {
 
   const dispatch = useDispatch()

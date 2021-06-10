@@ -17,6 +17,7 @@ import PopularArtists from "../Components/Artists/PopularArtists"
 import AccountSettings from "../Components/Profile/AccountSettings"
 import Messages from "../Components/Profile/Messages"
 import Orders from "../Components/Profile/Orders"
+import StartPage from "../Components/StartPage"
 import Login from "../Components/Login"
 import SignUp from "../Components/SignUp"
 
@@ -31,7 +32,8 @@ const LoginStackNavigator = ({navigate}) => {
         headerShown:false
   }}
   >
-    <Stack.Screen options={{title: null}} name='Login' component={Login} />
+    <Stack.Screen name='StartPage' component={StartPage} />
+    <Stack.Screen name='Login' component={Login} />
     <Stack.Screen name='SignUp' component={SignUp} />
   </Stack.Navigator>
   )
