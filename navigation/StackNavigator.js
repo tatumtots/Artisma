@@ -77,7 +77,6 @@ const HomeStackNavigator = ({ navigation }) => {
         <Stack.Screen name='Sculpture' component={Sculpture} />
         <Stack.Screen name='New' component={NewArtists} />
         <Stack.Screen name='Popular' component={PopularArtists} />
-        <Stack.Screen name='Login' component={Login} />
       
       
     </Stack.Navigator>

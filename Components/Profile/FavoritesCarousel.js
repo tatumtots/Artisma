@@ -1,6 +1,7 @@
 import React from "react"
 import {
     View,
+    Text,
     ScrollView,
     Animated,
     SafeAreaView,
@@ -48,6 +49,7 @@ export default function FavoritesCarousel() {
                 scrollEventThrottle={12}
             >
                 {favorites.map((item, index) => {
+                    
 
                     return(
                         <Animated.View 
@@ -59,6 +61,7 @@ export default function FavoritesCarousel() {
                                 paddingRight: 10,
                                 marginLeft: index === 0 ? offset : undefined,
                                 marginRight: index === favorites.length - 1 ? offset : undefined,
+                                
                             }}
                         >
                             <ImageBackground 
@@ -88,5 +91,6 @@ const styles = StyleSheet.create({
         marginBottom: 20,
         marginLeft:5,
         paddingHorizontal: 0
-    }
+    },
+    
 })

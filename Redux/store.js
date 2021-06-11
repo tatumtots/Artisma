@@ -10,6 +10,7 @@ import userReducer from "./Login/userSlice"
 const reducer = combineReducers({
   auth:authReducer,
   user:userReducer,
+  image: IMAGES
 })
 
 const store = configureStore({

@@ -32,7 +32,7 @@ function StartPage({navigation}){
                         title={"Sign Up"}
                         titleStyle={{ color: "#EBEBEB", fontSize:20 }}
                         buttonStyle={{
-                        backgroundColor: "#F93737",
+                        backgroundColor: "#00C8F8",
                         marginLeft: 5,
                         marginRight: 5,
                         borderRadius: 5,

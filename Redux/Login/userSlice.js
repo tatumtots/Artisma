@@ -4,7 +4,7 @@ const slice = createSlice({
     name:'user',
     initialState:[{}],
     reducers: {
-        gertUsee:(state) => {
+        getUser:(state) => {
             state.push({name: "User One"})
             state.push({name: "USer Two"})
         }

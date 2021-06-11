@@ -119,7 +119,7 @@ function CustomDrawerContentComponent(props) {
             New
           </Text>
         </View>
-        {/* Login Navigator */}
+        {/* Logout Navigator */}
         <View style={styles.drawerItem}>
           <Text
             style={styles.logoutText}
