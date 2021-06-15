@@ -4,7 +4,7 @@ import {
   Text,
   View,
   ScrollView,
-  Flatlist,
+  TouchableOpacity,
   Image,
 } from "react-native"
 import FavoritesCarousel from "./FavoritesCarousel"
@@ -58,9 +58,15 @@ export default function UserProfile(props) {
         {/* </View> */}
       </View>
       {/* <Flatlist>flatlist data link to stack navigator</Flatlist> */}
-      <View style={styles.flatlist}>
-        <Text>3</Text>
-      </View>
+      <TouchableOpacity style={styles.buttons}>
+        <Text style={styles.btnText}>Account Settings</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.buttons}>
+        <Text style={styles.btnText}>Orders</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.buttons}>
+        <Text style={styles.btnText}>Messages</Text>
+      </TouchableOpacity>
     </ScrollView>
   )
 }
@@ -115,7 +121,11 @@ const styles = StyleSheet.create({
     fontSize:20,
   },
   bioView: {
-    margin: 10,
+    flex:1,
+    marginTop: 10,
+    marginBottom: 10,
+    marginLeft: "15%",
+    marginRight: "10%",
   },
   bioText: {
     color: "#EBEBEB",
@@ -135,15 +145,25 @@ const styles = StyleSheet.create({
     fontFamily: "Cairo-Regular",
     fontSize: 24,
     color: "#EBEBEB",
+    marginLeft: 10,
   },
-  flatlist: {
-    backgroundColor: "green",
+  buttons: {
+    backgroundColor: "#001219",
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
     borderColor: "black",
     borderWidth: 1,
+    borderRightWidth:0,
+    borderLeftWidth: 0,
+    height: 50,
   },
+  btnText: {
+    fontFamily: "Cairo-Regular",
+    fontSize: 20,
+    color: "#EBEBEB",
+    marginLeft: 10,
+  }
 })
 
 connect(mapStateToProps)(UserProfile)

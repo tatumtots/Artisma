@@ -1,0 +1,21 @@
+need an algorythim to make sure uploaded art is "quality".
+define "quality" = based on user input.
+
+==========
+Validation
+==========
+
+
+user case(creator):
+quality rating will came from questionare(x number of questions, comparing 2-3 images)
+	- this is a requirement upon every upload of a new image.
+	- images provided in questionare will be categorized to match based on preset factors.
+
+
+user case(Base_user):
+quality rating will come from favorites feature.
+	- every user account will have the option to favorite a piece of art that is approved through user case(creator).
+
+
+
+  
