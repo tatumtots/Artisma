@@ -7,6 +7,7 @@ import {
   ImageBackground,
   Dimensions,
 } from "react-native"
+import { LinearGradient } from 'expo-linear-gradient';
 
 const ItemWidth = Dimensions.get("window").width
 const ItemHeight = 250
@@ -23,9 +24,9 @@ const Slide = (props) => {
       }}
     >
       <ImageBackground source={image} style={styles.bannerCard} />
-      <View style={styles.bannerTextContainer}>
+      <LinearGradient colors={["rgba(0, 18, 25, 0.80)", "rgba(0, 18, 25, 0.00)"]} style={styles.bannerTextContainer}>
         <Text style={styles.slideText}>{title}</Text>
-      </View>
+      </LinearGradient>
     </View>
   )
 }
@@ -157,7 +158,7 @@ const styles = StyleSheet.create({
     fontSize: 25,
     fontFamily: "Cairo-Regular",
     color: "#EBEBEB",
-    backgroundColor: "rgba(0, 18, 25, 0.60)",
+    
   },
   bannerCard: {
     flex: 1,
@@ -165,12 +166,12 @@ const styles = StyleSheet.create({
   },
   bannerTextContainer: {
     position: "absolute",
-    top: 0,
     left: 0,
     right: 0,
-    bottom: 0,
     alignItems: "center",
+    backgroundColor: "rgba(0, 18, 25, 0.60)",
   },
+  
 })
 
 export default Carousel

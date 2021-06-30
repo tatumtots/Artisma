@@ -7,13 +7,7 @@ import { Provider } from "react-redux"
 import store from "./Redux/store"
 import { StyleSheet, View } from "react-native"
 
-//HOOKS EXAMPLE
-// const [text, setText] = useState("jeya")
-{
-  /* <Button title='change text' onPress={() => setText("im changed")}>
-        change text
-      </Button> */
-}
+
 
 const getFonts = () => {
   return Font.loadAsync({
@@ -57,3 +51,16 @@ const styles = StyleSheet.create({
     flex: 1,
   },
 })
+
+//APP style key
+// #001219 background color
+
+// #F93737
+
+// #00C8F8 some links are this color, still questioning if i want it or not
+
+// #1E2E33 drawer color
+
+// #EBEBEB white for words
+
+// the Artisma font is 'Megrim', font for headers is 'Cairo', font for sub categories/paragraph is 'Assistant'
