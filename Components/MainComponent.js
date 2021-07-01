@@ -1,10 +1,8 @@
 import React, { Component } from "react"
 import { View, Platform } from "react-native"
 import { useSelector } from "react-redux"
-
 import DrawerNavigator from "../navigation/DrawerNavigator"
 import { LoginStackNavigator } from "../navigation/StackNavigator"
-
 import { NavigationContainer } from "@react-navigation/native"
 
 
