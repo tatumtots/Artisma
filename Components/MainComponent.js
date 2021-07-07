@@ -4,6 +4,7 @@ import { useSelector } from "react-redux"
 import DrawerNavigator from "../navigation/DrawerNavigator"
 import { LoginStackNavigator } from "../navigation/StackNavigator"
 import { NavigationContainer } from "@react-navigation/native"
+import Constants from 'expo-constants'
 
 
 
@@ -24,7 +25,7 @@ class Main extends Component {
         style={{
           flex: 1,
           paddingTop:
-            Platform.OS === "ios" ? 0 : Expo.Constants.statusBarHeight,
+            Platform.OS === "ios" ? 0 : Constants.statusBarHeight,
         }}
       >
       

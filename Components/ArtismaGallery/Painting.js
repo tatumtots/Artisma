@@ -1,8 +1,28 @@
-import React from "react"
+import React, { useState } from "react"
 import { StyleSheet, TextInput, View, Text, Button, Image, SafeAreaView, ScrollView } from "react-native"
 import { Icon } from "react-native-elements"
+import DropDownPicker from "react-native-dropdown-picker"
 
 export default function Painting() {
+    const [subjectOpen, setSubjectOpen] = useState(false);
+
+    const [value, setValue] = useState(false);
+    const [items, setItems] = useState([
+        {label: 'abstract', value: 'abstract'},
+        {label: 'animals', value: 'animals'},
+        {label: 'character design', value: 'character design'},
+        {label: 'concept art', value: 'concept art'},
+        {label: 'geographic design', value: 'geographic design'},
+        {label: 'landscape', value: 'landscape'},
+        {label: 'minimalism', value: 'minimalism'},
+        {label: 'nature', value: 'nature'},
+        {label: 'nudes', value: 'nudes'},
+        {label: 'portraits', value: 'portraits'},
+        {label: 'surrealism', value: 'surrealism'},
+
+    ])
+ 
+
     return(
         <SafeAreaView style={{flex: 1,backgroundColor: "#001219"}}>
             <View style={{flexDirection: "row"}}>
@@ -12,6 +32,17 @@ export default function Painting() {
                 </Text>
                 
                 <View style={{flexDirection: "row"}}>
+                    {/* <DropDownPicker
+                        open={subjectOpen}
+                        value={value}
+                        items={items}
+                        setOpen={setSubjectOpen}
+                        setValue={setValue}
+                        setItems={setItems}
+                        theme="DARK"
+                        placeholder="Subject"
+                        
+                    /> */}
                     <Text style={{ fontFamily: "Cairo-Regular", fontSize: 18, color: "#EBEBEB", paddingTop: "5%", paddingLeft: "5%" }}>
                         Subject
                     </Text>

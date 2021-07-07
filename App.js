@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import * as Font from "expo-font"
 import Main from "./Components/MainComponent"
-import { AppLoading } from "expo"
+import AppLoading from "expo-app-loading"
 //REDUX IMPORTS
 import { Provider } from "react-redux"
 import store from "./Redux/store"
@@ -38,7 +38,7 @@ export default function App() {
     )
   } else {
     return (
-      <AppLoading startAsync={getFonts} onFinish={() => setFontsLoaded(true)} />
+      <AppLoading startAsync={getFonts} onFinish={() => setFontsLoaded(true)} onError={console.warn} />
     )
   }
 }
