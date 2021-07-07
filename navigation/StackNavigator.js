@@ -5,8 +5,9 @@ import { createStackNavigator } from "@react-navigation/stack"
 
 import Home from "../Components/Home"
 import Explore from "../Components/Explore"
+import Upload from "../Components/Upload"
 import Profile from "../Components/Profile/UserProfile"
-import Cart from "../Components/ShoppingCart/CartMain"
+import Notifications from "../Components/Notifications/NotificationsMain"
 import Digital from "../Components/ArtismaGallery/Digital"
 import Drawing from "../Components/ArtismaGallery/Drawing"
 import Painting from "../Components/ArtismaGallery/Painting"
@@ -126,6 +127,39 @@ const ExploreStackNavigator = ({ navigation }) => {
   )
 }
 
+const UploadStackNavigator = ({ navigation }) => {
+  return (
+    <Stack.Navigator
+      screenOptions={{
+        headerTitle: "Upload",
+        headerStyle: {
+          backgroundColor: "#001219",
+        },
+        headerTitleStyle: {
+          fontFamily: "Megrim-Regular",
+          color: "#F93737",
+          fontSize: 40,
+          marginLeft: "1%",
+        },
+        headerLeft: () => (
+          <Icon
+            name='bars'
+            type='font-awesome'
+            iconStyle={{
+              color: "#EBEBEB",
+              margin: 10,
+            }}
+            size={30}
+            onPress={() => navigation.toggleDrawer()}
+          />
+        ),
+      }}
+    >
+      <Stack.Screen name='Upload' component={Upload} />
+    </Stack.Navigator>
+  )
+}
+
 const ProfileStackNavigator = ({ navigation }) => {
   return (
     <Stack.Navigator
@@ -159,11 +193,11 @@ const ProfileStackNavigator = ({ navigation }) => {
   )
 }
 
-const CartStackNavigator = ({ navigation }) => {
+const NotificationsStackNavigator = ({ navigation }) => {
   return (
     <Stack.Navigator
       screenOptions={{
-        headerTitle: "Checkout",
+        headerTitle: "Notifications",
         headerStyle: {
           backgroundColor: "#001219",
         },
@@ -187,7 +221,7 @@ const CartStackNavigator = ({ navigation }) => {
         ),
       }}
     >
-      <Stack.Screen name='Cart' component={Cart} />
+      <Stack.Screen name='Notifications' component={Notifications} />
     </Stack.Navigator>
   )
 }
@@ -196,6 +230,7 @@ export {
   LoginStackNavigator,
   HomeStackNavigator,
   ExploreStackNavigator,
+  UploadStackNavigator,
   ProfileStackNavigator,
-  CartStackNavigator,
+  NotificationsStackNavigator,
 }
