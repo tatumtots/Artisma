@@ -6,16 +6,15 @@ import { configureStore, combineReducers } from "@reduxjs/toolkit"
 // Login Reducers
 import authReducer from "./Login/authSlice"
 import userReducer from "./Login/userSlice"
+import imageReducer from "./Reducers/imageReducer"
 
 const reducer = combineReducers({
-  auth:authReducer,
-  user:userReducer,
-  image: IMAGES
+  auth: authReducer,
+  user: userReducer,
+  image: imageReducer,
 })
 
-const store = configureStore({
-  reducer
-})
+const store = createStore(reducer)
 
 // const initialState = {
 //   image: IMAGES,

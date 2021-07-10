@@ -1,6 +1,12 @@
-import { COUNT } from "../Actions/ActionTypes"
+import { createSlice } from "@reduxjs/toolkit"
+import { IMAGES } from "../../Components/imageArray"
 
-const reducer = (state, action) => {
+const initialState = {
+  images: IMAGES,
+}
+
+const imageReducer = (state = initialState, action) => {
   return state
 }
-export default reducer
+
+export default imageReducer
