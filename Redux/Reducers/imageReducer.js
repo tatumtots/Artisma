@@ -5,8 +5,15 @@ const initialState = {
   images: IMAGES,
 }
 
-const imageReducer = (state = initialState, action) => {
+export const imageReducer = (state = initialState, action) => {
   return state
 }
+
+// export const groupReducer = (state = initialState, action) => {
+//   if( state.images.group === 'painting'){
+//     return state
+//   }
+
+// }
 
 export default imageReducer

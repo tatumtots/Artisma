@@ -6,6 +6,7 @@ import {
   ScrollView,
   TouchableOpacity,
   Image,
+  Dimensions,
 } from "react-native"
 import FavoritesCarousel from "./FavoritesCarousel"
 import { Icon } from "react-native-elements"
@@ -13,22 +14,28 @@ import { Icon } from "react-native-elements"
 import { connect } from "react-redux"
 
 function mapStateToProps(state) {
-  console.log(state)
+  console.log(`HELLO${state.image.images[0].title}`)
   return { image: state.image }
 }
 
-export default function UserProfile(props) {
-  console.log(`this is LLLLL: ${props}`)
+function UserProfile(props) {
+  console.log(`this is LLLLL: ${props.image.images[0]}`)
   return (
     <ScrollView style={styles.container}>
       <View style={styles.headerView}>
-        <View style={styles.editBox}>
-
-          <Text style={styles.editText}>Edit Profile</Text>
+        <View style={styles.coverImage}>
+          <Image
+            source={require("../../assets/images/vaporwave-in-space.jpg")}
+            style={styles.coverImage}
+          ></Image>
+          <View style={styles.editBox}>
+            <Text style={styles.editText}>Edit Profile</Text>
+          </View>
         </View>
-        <View style={styles.profileImage}>
-          {/* <Image style={styles.profileImage} source={props.image} /> */}
-        </View>
+        <Image
+          source={require("../../assets/images/tatum-on-mural.jpg")}
+          style={styles.profileImage}
+        ></Image>
         <View style={styles.location}>
           <Icon
             name='map-marker'
@@ -50,11 +57,18 @@ export default function UserProfile(props) {
           </Text>
         </View>
       </View>
+      {/**WORK SECTION */}
+      <View>
+        <Image
+          source={require("../../assets/images/vaporwave-in-space.jpg")}
+          style={styles.artContainer}
+        />
+      </View>
       {/**FAVORITES */}
       <View style={styles.favoritesView}>
         <Text style={styles.favoritesHeader}>Favorites</Text>
         {/* <View style={styles.favoritesBox}> */}
-        <FavoritesCarousel/>
+        <FavoritesCarousel />
         {/* </View> */}
       </View>
       {/* <Flatlist>flatlist data link to stack navigator</Flatlist> */}
@@ -70,6 +84,10 @@ export default function UserProfile(props) {
     </ScrollView>
   )
 }
+
+const offset = 30
+const itemWidth = Dimensions.get("screen").width * 0.8 - offset * 2
+const itemHeight = 200
 
 const styles = StyleSheet.create({
   container: {
@@ -98,14 +116,20 @@ const styles = StyleSheet.create({
   editText: {
     color: "#929292",
   },
+  coverImage: {
+    backgroundColor: "red",
+    width: "100%",
+    height: 145,
+  },
   profileImage: {
-    width: 90,
-    height: 90,
+    width: 110,
+    height: 110,
     borderRadius: 100,
     backgroundColor: "blue",
     alignSelf: "center",
     marginBottom: 5,
-    marginTop:2
+    marginTop: -55,
+    zIndex: 5,
   },
   location: {
     flexDirection: "row",
@@ -118,10 +142,10 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     color: "#EBEBEB",
     fontFamily: "Cairo-Bold",
-    fontSize:20,
+    fontSize: 20,
   },
   bioView: {
-    flex:1,
+    flex: 1,
     marginTop: 10,
     marginBottom: 10,
     marginLeft: "15%",
@@ -130,6 +154,10 @@ const styles = StyleSheet.create({
   bioText: {
     color: "#EBEBEB",
   },
+  artContainer: {
+    width: itemWidth,
+    height: itemHeight,
+  },
   favoritesView: {
     flex: 1,
     borderColor: "black",
@@ -137,7 +165,7 @@ const styles = StyleSheet.create({
   },
   favoritesBox: {
     alignItems: "center",
-    height:200,
+    height: 200,
     width: "100%",
     backgroundColor: "#1E2E33",
   },
@@ -154,7 +182,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     borderColor: "black",
     borderWidth: 1,
-    borderRightWidth:0,
+    borderRightWidth: 0,
     borderLeftWidth: 0,
     height: 50,
   },
@@ -163,7 +191,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     color: "#EBEBEB",
     marginLeft: 10,
-  }
+  },
 })
 
-connect(mapStateToProps)(UserProfile)
+export default connect(mapStateToProps)(UserProfile)
