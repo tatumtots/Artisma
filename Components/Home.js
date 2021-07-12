@@ -49,7 +49,7 @@ function Home() {
 const styles = StyleSheet.create({
   bannerContainer: {
     flex: 1,
-    backgroundColor: "#001219"
+    backgroundColor: "#151515"
   },
   bannerCard: {
     flex: 1,

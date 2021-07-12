@@ -24,7 +24,7 @@ const Slide = (props) => {
       }}
     >
       <ImageBackground source={image} style={styles.bannerCard} />
-      <LinearGradient colors={["rgba(0, 18, 25, 0.80)", "rgba(0, 18, 25, 0.00)"]} style={styles.bannerTextContainer}>
+      <LinearGradient colors={["rgba(0, 18, 25, 0.9)", "rgba(0, 18, 25, 0.7)", "rgba(0, 18, 25, 0.47)", "rgba(0, 18, 25, 0.19)", "rgba(0, 18, 25, 0.01)"]} style={styles.bannerTextContainer}>
         <Text style={styles.slideText}>{title}</Text>
       </LinearGradient>
     </View>
@@ -158,7 +158,7 @@ const styles = StyleSheet.create({
     fontSize: 25,
     fontFamily: "Cairo-Regular",
     color: "#EBEBEB",
-    
+    backgroundColor: "transparent",
   },
   bannerCard: {
     flex: 1,
@@ -169,7 +169,7 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
     alignItems: "center",
-    backgroundColor: "rgba(0, 18, 25, 0.60)",
+    // backgroundColor: "rgba(0, 18, 25, 0.60)",
   },
   
 })

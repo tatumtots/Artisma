@@ -47,7 +47,7 @@ const HomeStackNavigator = ({ navigation }) => {
       screenOptions={{
         headerTitle: "Artisma",
         headerStyle: {
-          backgroundColor: "#001219",
+          backgroundColor: "#151515",
         },
         headerTitleStyle: {
           fontFamily: "Megrim-Regular",
@@ -100,7 +100,7 @@ const ExploreStackNavigator = ({ navigation }) => {
       screenOptions={{
         headerTitle: "Explore",
         headerStyle: {
-          backgroundColor: "#001219",
+          backgroundColor: "#151515",
         },
         headerTitleStyle: {
           fontFamily: "Megrim-Regular",
@@ -133,7 +133,7 @@ const UploadStackNavigator = ({ navigation }) => {
       screenOptions={{
         headerTitle: "Upload",
         headerStyle: {
-          backgroundColor: "#001219",
+          backgroundColor: "#151515",
         },
         headerTitleStyle: {
           fontFamily: "Megrim-Regular",
@@ -166,7 +166,7 @@ const ProfileStackNavigator = ({ navigation }) => {
       screenOptions={{
         headerTitle: "Account",
         headerStyle: {
-          backgroundColor: "#001219",
+          backgroundColor: "#151515",
         },
         headerTitleStyle: {
           fontFamily: "Megrim-Regular",
@@ -199,7 +199,7 @@ const NotificationsStackNavigator = ({ navigation }) => {
       screenOptions={{
         headerTitle: "Notifications",
         headerStyle: {
-          backgroundColor: "#001219",
+          backgroundColor: "#151515",
         },
         headerTitleStyle: {
           fontFamily: "Megrim-Regular",

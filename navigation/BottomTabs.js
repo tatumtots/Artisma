@@ -29,8 +29,8 @@ function MainBottomTabs() {
         tabBarOptions={{
           activeTintColor: "#F93737",
           inactiveTintColor: "#F93737",
-          activeBackgroundColor: "#001219",
-          inactiveBackgroundColor: "#001219",
+          activeBackgroundColor: "#151515",
+          inactiveBackgroundColor: "#151515",
           showLabel: false
         }}
         

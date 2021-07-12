@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
 })
 
 //APP style key
-// #001219 background color
+// #151515 background color
 
 // #F93737
 

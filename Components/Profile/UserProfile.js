@@ -58,7 +58,7 @@ function UserProfile(props) {
         </View>
       </View>
       {/**WORK SECTION */}
-      <View>
+      <View style={{flex: 1, flexDirection: "column", justifyContent: "center", alignItems: "center"}}>
         <Image
           source={require("../../assets/images/vaporwave-in-space.jpg")}
           style={styles.artContainer}
@@ -86,13 +86,13 @@ function UserProfile(props) {
 }
 
 const offset = 30
-const itemWidth = Dimensions.get("screen").width * 0.8 - offset * 2
+const itemWidth = Dimensions.get("screen").width * 0.86 - offset * 2
 const itemHeight = 200
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#001219",
+    backgroundColor: "#151515",
   },
   headerView: {
     flex: 1,
@@ -176,7 +176,7 @@ const styles = StyleSheet.create({
     marginLeft: 10,
   },
   buttons: {
-    backgroundColor: "#001219",
+    backgroundColor: "#151515",
     flex: 1,
     justifyContent: "center",
     alignItems: "center",

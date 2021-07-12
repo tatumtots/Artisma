@@ -31,7 +31,7 @@ class Main extends Component {
       
         <MainNavigator
           style={{
-            backgroundColor: "#001219",
+            backgroundColor: "#151515",
           }}
         />
       </View>

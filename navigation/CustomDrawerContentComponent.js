@@ -16,7 +16,7 @@ function CustomDrawerContentComponent(props) {
     e.preventDefault();
   }
   return (
-    <ScrollView style={{ backgroundColor: "#001219" }}>
+    <ScrollView style={{ backgroundColor: "#151515" }}>
       <SafeAreaView
         style={styles.container}
         forceInset={{ top: "always", horizontal: "never" }}
@@ -152,10 +152,10 @@ function CustomDrawerContentComponent(props) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#001219",
+    backgroundColor: "#151515",
   },
   drawerHeader: {
-    backgroundColor: "#001219",
+    backgroundColor: "#151515",
     height: 100,
     alignItems: "center",
     justifyContent: "center",

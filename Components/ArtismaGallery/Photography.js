@@ -36,7 +36,7 @@ function Photography(props) {
   )
 
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: "#001219" }}>
+    <SafeAreaView style={{ flex: 1, backgroundColor: "#151515" }}>
       <View style={{ flexDirection: "row" }}>
         <Text
           style={{
