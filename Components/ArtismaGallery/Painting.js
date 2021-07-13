@@ -10,26 +10,24 @@ import {
   ScrollView,
 } from "react-native"
 import { Icon } from "react-native-elements"
-import DropDownPicker from "react-native-dropdown-picker"
 import { connect } from "react-redux"
+import ModalDropdown from 'react-native-modal-dropdown'
+
+// Subject Dropdown list
+
+const subjects = ["abstract", "animals", "character design", "concept art", "geographic design", "landscape", "minimalism", "nature", "nudes", "portraits", "surrealism"]
+  
 
 function Painting(props) {
-  //   const [subjectOpen, setSubjectOpen] = useState(false)
+  const [sbjDropdown, setSbjDropdown] = useState({})
+  const [selected, setSelected] = useState([])
 
-  //   const [value, setValue] = useState(false)
-  //   const [items, setItems] = useState([
-  //     { label: "abstract", value: "abstract" },
-  //     { label: "animals", value: "animals" },
-  //     { label: "character design", value: "character design" },
-  //     { label: "concept art", value: "concept art" },
-  //     { label: "geographic design", value: "geographic design" },
-  //     { label: "landscape", value: "landscape" },
-  //     { label: "minimalism", value: "minimalism" },
-  //     { label: "nature", value: "nature" },
-  //     { label: "nudes", value: "nudes" },
-  //     { label: "portraits", value: "portraits" },
-  //     { label: "surrealism", value: "surrealism" },
-  //   ])
+  const renderItem = (item) => {
+    <View style={styles.item}>
+      <Text style={styles.textItem}>{item.label}</Text>
+      
+    </View>
+  }
 
   const filteredPaintingGroup = props.image.images.filter(
     (i) => i.group === "painting"
@@ -51,31 +49,24 @@ function Painting(props) {
         </Text>
 
         <View style={{ flexDirection: "row" }}>
-          {/* <DropDownPicker
-                        open={subjectOpen}
-                        value={value}
-                        items={items}
-                        setOpen={setSubjectOpen}
-                        setValue={setValue}
-                        setItems={setItems}
-                        theme="DARK"
-                        placeholder="Subject"
-                        
-                    /> */}
+        <ModalDropdown style={styles.dropdown_1}
+                           options={subjects}>
           <Text
             style={{
               fontFamily: "Cairo-Regular",
               fontSize: 18,
               color: "#EBEBEB",
-              paddingTop: "5%",
+              paddingTop: "4%",
               paddingLeft: "5%",
             }}
           >
             Subject
           </Text>
+          </ModalDropdown>
+            
           <View style={styles.subArrow}>
             <Icon
-              name='long-arrow-down'
+              name='chevron-down'
               type='font-awesome'
               color='#F93737'
               size={12}
@@ -96,7 +87,7 @@ function Painting(props) {
           </Text>
           <View style={styles.sortArrow}>
             <Icon
-              name='long-arrow-down'
+              name='chevron-down'
               type='font-awesome'
               color='#F93737'
               size={12}
@@ -131,13 +122,20 @@ const styles = StyleSheet.create({
     margin: "1%",
   },
   subArrow: {
-    marginTop: "35%",
+    marginTop: "29%",
     paddingLeft: 3,
   },
   sortArrow: {
-    marginTop: "49.5%",
+    marginTop: "47%",
     paddingLeft: 3,
   },
+  dropdown_1: {
+    fontFamily: "Cairo-Regular",
+    fontSize: 18,
+    color: "#EBEBEB",
+    // paddingTop: "5%",
+    // paddingLeft: "5%",
+  }
 })
 
 function mapStateToProps(state) {
