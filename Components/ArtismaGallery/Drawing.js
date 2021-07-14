@@ -15,7 +15,6 @@ import { connect } from "react-redux"
 
 function Drawing(props) {
   const [subjectOpen, setSubjectOpen] = useState(false)
-
   const [value, setValue] = useState(false)
   const [items, setItems] = useState([
     { label: "abstract", value: "abstract" },
@@ -36,7 +35,7 @@ function Drawing(props) {
   )
 
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: "#151515" }}>
+    <SafeAreaView style={{ flex: 1, backgroundColor: "#001219" }}>
       <View style={{ flexDirection: "row" }}>
         <Text
           style={{

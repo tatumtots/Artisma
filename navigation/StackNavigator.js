@@ -1,4 +1,4 @@
-import React, { useState} from "react"
+import React, { useState } from "react"
 import { Icon } from "react-native-elements"
 import { SafeAreaView } from "react-native"
 import { createStackNavigator } from "@react-navigation/stack"
@@ -24,28 +24,25 @@ import SignUp from "../Components/SignUp"
 
 const Stack = createStackNavigator()
 
-
-
-const LoginStackNavigator = ({navigate}) => {
-  return(
-  <Stack.Navigator
-  screenOptions={{
-        headerShown:false
-  }}
-  >
-    <Stack.Screen name='StartPage' component={StartPage} />
-    <Stack.Screen name='Login' component={Login} />
-    <Stack.Screen name='SignUp' component={SignUp} />
-  </Stack.Navigator>
+const LoginStackNavigator = ({ navigate }) => {
+  return (
+    <Stack.Navigator
+      screenOptions={{
+        headerShown: false,
+      }}
+    >
+      <Stack.Screen name='StartPage' component={StartPage} />
+      <Stack.Screen name='Login' component={Login} />
+      <Stack.Screen name='SignUp' component={SignUp} />
+    </Stack.Navigator>
   )
 }
 
 const HomeStackNavigator = ({ navigation }) => {
-
   return (
     <Stack.Navigator
       screenOptions={{
-        headerTitle: "Artisma",
+        headerTitle: "Artemus",
         headerStyle: {
           backgroundColor: "#151515",
         },
@@ -69,17 +66,14 @@ const HomeStackNavigator = ({ navigation }) => {
         ),
       }}
     >
-    
-        <Stack.Screen name='Home' component={Home} />
-        <Stack.Screen name='Digital' component={Digital} />
-        <Stack.Screen name='Drawing' component={Drawing} />
-        <Stack.Screen name='Painting' component={Painting} />
-        <Stack.Screen name='Photography' component={Photography} />
-        <Stack.Screen name='Sculpture' component={Sculpture} />
-        <Stack.Screen name='New' component={NewArtists} />
-        <Stack.Screen name='Popular' component={PopularArtists} />
-      
-      
+      <Stack.Screen name='Home' component={Home} />
+      <Stack.Screen name='Digital' component={Digital} />
+      <Stack.Screen name='Drawing' component={Drawing} />
+      <Stack.Screen name='Painting' component={Painting} />
+      <Stack.Screen name='Photography' component={Photography} />
+      <Stack.Screen name='Sculpture' component={Sculpture} />
+      <Stack.Screen name='New' component={NewArtists} />
+      <Stack.Screen name='Popular' component={PopularArtists} />
     </Stack.Navigator>
   )
 }
