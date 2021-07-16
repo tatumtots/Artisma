@@ -15,19 +15,16 @@ import ModalDropdown from 'react-native-modal-dropdown'
 
 // Subject Dropdown list
 
-const subjects = ["abstract", "animals", "character design", "concept art", "geographic design", "landscape", "minimalism", "nature", "nudes", "portraits", "surrealism"]
-  
+const subjects = ["Abstract", "Animals", "Character Design", "Concept Art", "Geographic Design",
+                  "Landscape", "Minimalism", "Nature", "Nudes", "Portraits", "Surrealism"]
+const sort = ["Highly Rated", "Legacy Artists", "New Uplaods"]
 
 function Painting(props) {
-  const [sbjDropdown, setSbjDropdown] = useState({})
-  const [selected, setSelected] = useState([])
-
-  const renderItem = (item) => {
-    <View style={styles.item}>
-      <Text style={styles.textItem}>{item.label}</Text>
-      
-    </View>
-  }
+  const [sbjOpen, setSbjOpen] = useState(false)
+  const [sortOpen, setSortOpen] = useState(false)
+  
+  const toggleSbj = () => setSbjOpen(!sbjOpen)
+  const toggleSort = () => setSortOpen(!sortOpen)
 
   const filteredPaintingGroup = props.image.images.filter(
     (i) => i.group === "painting"
@@ -49,8 +46,28 @@ function Painting(props) {
         </Text>
 
         <View style={{ flexDirection: "row" }}>
-        <ModalDropdown style={styles.dropdown_1}
-                           options={subjects}>
+        <ModalDropdown 
+          style={styles.dropdown_1}
+          options={subjects}
+          dropdownTextStyle={{
+            fontFamily: "Cairo-Regular",
+            fontSize: 17,
+            color: "#EBEBEB",
+            backgroundColor: "#151515",
+            }}
+            dropdownStyle={{
+              flex:1,
+              justifyContent: "flex-start",
+              height: 455,
+              marginTop: "-15%",
+            }}
+            dropdownTextHighlightStyle={{
+              color: "#151515", 
+              backgroundColor:"#EBEBEB"
+            }}
+            onDropdownWillShow={toggleSbj}
+            onDropdownWillHide={toggleSbj}
+            >
           <Text
             style={{
               fontFamily: "Cairo-Regular",
@@ -66,7 +83,7 @@ function Painting(props) {
             
           <View style={styles.subArrow}>
             <Icon
-              name='chevron-down'
+              name= {!sbjOpen ? 'chevron-down' : "chevron-up"}
               type='font-awesome'
               color='#F93737'
               size={12}
@@ -74,20 +91,45 @@ function Painting(props) {
           </View>
         </View>
         <View style={{ flexDirection: "row" }}>
+        <ModalDropdown 
+          style={styles.dropdown_1}
+          options={sort}
+          dropdownTextStyle={{
+            fontFamily: "Cairo-Regular",
+            fontSize: 17,
+            color: "#EBEBEB",
+            backgroundColor: "#151515",
+            }}
+            dropdownStyle={{
+              flex:1,
+              justifyContent: "flex-start",
+              height: 188,
+              marginTop: "-15%",
+              marginRight: "-15%",
+              marginLeft: "15%",
+            }}
+            dropdownTextHighlightStyle={{
+              color: "#151515", 
+              backgroundColor:"#EBEBEB"
+            }}
+            onDropdownWillShow={toggleSort}
+            onDropdownWillHide={toggleSort}
+            >
           <Text
             style={{
               fontFamily: "Cairo-Regular",
               fontSize: 18,
               color: "#EBEBEB",
-              paddingTop: "5%",
+              paddingTop: "4%",
               paddingLeft: "5%",
             }}
           >
             Sort
           </Text>
+          </ModalDropdown>
           <View style={styles.sortArrow}>
             <Icon
-              name='chevron-down'
+              name= {!sortOpen ? 'chevron-down' : 'chevron-up'}
               type='font-awesome'
               color='#F93737'
               size={12}
@@ -126,13 +168,10 @@ const styles = StyleSheet.create({
     paddingLeft: 3,
   },
   sortArrow: {
-    marginTop: "47%",
+    marginTop: "40%",
     paddingLeft: 3,
   },
   dropdown_1: {
-    fontFamily: "Cairo-Regular",
-    fontSize: 18,
-    color: "#EBEBEB",
     // paddingTop: "5%",
     // paddingLeft: "5%",
   }
