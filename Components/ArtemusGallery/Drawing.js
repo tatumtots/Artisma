@@ -10,25 +10,22 @@ import {
   ScrollView,
 } from "react-native"
 import { Icon } from "react-native-elements"
-import DropDownPicker from "react-native-dropdown-picker"
 import { connect } from "react-redux"
+import ModalDropdown from "react-native-modal-dropdown"
+
+//SUBJECT DROPDOWN LIST
+const subjects = ["All", "Abstract", "Animals", "Character Design", "Concept Art", "Geographic Design",
+                  "Landscape", "Minimalism", "Nature", "Nudes", "Portraits", "Surrealism"]
+//SORT DROPDOWN LIST
+const sort = ["Highly Rated", "Legacy Artists", "New Uplaods"]
 
 function Drawing(props) {
-  const [subjectOpen, setSubjectOpen] = useState(false)
-  const [value, setValue] = useState(false)
-  const [items, setItems] = useState([
-    { label: "abstract", value: "abstract" },
-    { label: "animals", value: "animals" },
-    { label: "character design", value: "character design" },
-    { label: "concept art", value: "concept art" },
-    { label: "geographic design", value: "geographic design" },
-    { label: "landscape", value: "landscape" },
-    { label: "minimalism", value: "minimalism" },
-    { label: "nature", value: "nature" },
-    { label: "nudes", value: "nudes" },
-    { label: "portraits", value: "portraits" },
-    { label: "surrealism", value: "surrealism" },
-  ])
+  //HOOKS FOR TOGGLING DROPDOWN ICONS
+  const [sbjOpen, setSbjOpen] = useState(false)
+  const [sortOpen, setSortOpen] = useState(false)
+  //TOGGLE FUNCTIONS FOR DROPDOWN ICONS
+  const toggleSbj = () => setSbjOpen(!sbjOpen)
+  const toggleSort = () => setSortOpen(!sortOpen)
 
   const filteredDrawingGroup = props.image.images.filter(
     (i) => i.group === "drawing"
@@ -36,7 +33,9 @@ function Drawing(props) {
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: "#001219" }}>
+      {/* HEADER START */}
       <View style={{ flexDirection: "row" }}>
+        {/* HEADER TEXT START */}
         <Text
           style={{
             fontFamily: "Cairo-Bold",
@@ -48,61 +47,109 @@ function Drawing(props) {
         >
           Drawings
         </Text>
+        {/* HEADER TEXT END */}
 
+        {/* SUBJECT DROPDOWN START */}
         <View style={{ flexDirection: "row" }}>
-          {/* <DropDownPicker
-                        open={subjectOpen}
-                        value={value}
-                        items={items}
-                        setOpen={setSubjectOpen}
-                        setValue={setValue}
-                        setItems={setItems}
-                        theme="DARK"
-                        placeholder="Subject"
-                        
-                    /> */}
-          <Text
-            style={{
+          <ModalDropdown 
+            style={styles.dropdown_1}
+            options={subjects}
+            dropdownTextStyle={{
               fontFamily: "Cairo-Regular",
-              fontSize: 18,
+              fontSize: 17,
               color: "#EBEBEB",
-              paddingTop: "5%",
-              paddingLeft: "5%",
+              backgroundColor: "#151515",
+              }}
+            dropdownStyle={{
+              flex:1,
+              justifyContent: "flex-start",
+              height: 455,
+              marginTop: "-0.5%",
             }}
+            dropdownTextHighlightStyle={{
+              color: "#151515", 
+              backgroundColor:"#EBEBEB"
+            }}
+            defaultIndex={0}
+            onDropdownWillShow={toggleSbj}
+            onDropdownWillHide={toggleSbj}
           >
-            Subject
-          </Text>
+            <Text
+              style={{
+                fontFamily: "Assistant-Regular",
+                fontSize: 18,
+                color: "#EBEBEB",
+                paddingTop: "5%",
+                paddingLeft: "5%",
+              }}
+            >
+              Subject
+            </Text>
+          </ModalDropdown>
           <View style={styles.subArrow}>
             <Icon
-              name='long-arrow-down'
+              name= {!sbjOpen ? 'chevron-down' : "chevron-up"}
               type='font-awesome'
               color='#F93737'
               size={12}
             />
           </View>
         </View>
+        {/* SUBJECT DROPDOWN END */}
+
+        {/* SORT DROPDOWN START */}
         <View style={{ flexDirection: "row" }}>
-          <Text
-            style={{
+          <ModalDropdown 
+            style={styles.dropdown_1}
+            options={sort}
+            dropdownTextStyle={{
               fontFamily: "Cairo-Regular",
-              fontSize: 18,
+              fontSize: 17,
               color: "#EBEBEB",
-              paddingTop: "5%",
-              paddingLeft: "5%",
+              backgroundColor: "#151515",
+              }}
+            dropdownStyle={{
+              flex:1,
+              justifyContent: "flex-start",
+              height: 148,
+              marginTop: "-0.5%",
+              marginRight: "-15%",
+              marginLeft: "15%",
             }}
+            dropdownTextHighlightStyle={{
+              color: "#151515", 
+              backgroundColor:"#EBEBEB"
+            }}
+            defaultIndex={0}
+            onDropdownWillShow={toggleSort}
+            onDropdownWillHide={toggleSort}
           >
-            Sort
-          </Text>
+            <Text
+              style={{
+                fontFamily: "Assistant-Regular",
+                fontSize: 18,
+                color: "#EBEBEB",
+                paddingTop: "5%",
+                paddingLeft: "5%",
+              }}
+            >
+              Sort
+            </Text>
+            </ModalDropdown>
           <View style={styles.sortArrow}>
             <Icon
-              name='long-arrow-down'
-              type='font-awesome'
-              color='#F93737'
-              size={12}
-            />
+                name= {!sortOpen ? 'chevron-down' : 'chevron-up'}
+                type='font-awesome'
+                color='#F93737'
+                size={12}
+              />
           </View>
         </View>
+      {/* SORT DROPDOWN START */}
       </View>
+      {/* HEADER END */}
+
+      {/* GALLERY START */}
       <View style={{ flex: 1 }}>
         <ScrollView
           horizontal={false}
@@ -113,6 +160,7 @@ function Drawing(props) {
           })}
         </ScrollView>
       </View>
+      {/* GALLERY END */}
     </SafeAreaView>
   )
 }
@@ -130,13 +178,17 @@ const styles = StyleSheet.create({
     margin: "1%",
   },
   subArrow: {
-    marginTop: "35%",
+    marginTop: "30%",
     paddingLeft: 3,
   },
   sortArrow: {
-    marginTop: "49.5%",
+    marginTop: "42%",
     paddingLeft: 3,
   },
+  dropdown_1: {
+    // paddingTop: "5%",
+    // paddingLeft: "5%",
+  }
 })
 
 function mapStateToProps(state) {

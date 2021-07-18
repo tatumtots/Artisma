@@ -11,18 +11,19 @@ import {
 } from "react-native"
 import { Icon } from "react-native-elements"
 import { connect } from "react-redux"
-import ModalDropdown from 'react-native-modal-dropdown'
+import ModalDropdown from "react-native-modal-dropdown"
 
-// Subject Dropdown list
-
-const subjects = ["Abstract", "Animals", "Character Design", "Concept Art", "Geographic Design",
+//SUBJECT DROPDOWN LIST
+const subjects = ["All", "Abstract", "Animals", "Character Design", "Concept Art", "Geographic Design",
                   "Landscape", "Minimalism", "Nature", "Nudes", "Portraits", "Surrealism"]
+//SORT DROPDOWN LIST
 const sort = ["Highly Rated", "Legacy Artists", "New Uplaods"]
 
 function Painting(props) {
+  //HOOKS FOR TOGGLING DROPDOWN ICONS
   const [sbjOpen, setSbjOpen] = useState(false)
   const [sortOpen, setSortOpen] = useState(false)
-  
+  //TOGGLE FUNCTIONS FOR DROPDOWN ICONS
   const toggleSbj = () => setSbjOpen(!sbjOpen)
   const toggleSort = () => setSortOpen(!sortOpen)
 
@@ -32,7 +33,9 @@ function Painting(props) {
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: "#151515" }}>
+    {/* HEADER START */}
       <View style={{ flexDirection: "row" }}>
+        {/* HEADER TEXT START */}
         <Text
           style={{
             fontFamily: "Cairo-Bold",
@@ -44,41 +47,44 @@ function Painting(props) {
         >
           Paintings
         </Text>
+        {/* HEADER TEXT END */}
 
+        {/* SUBJECT DROPDOWN START */}
         <View style={{ flexDirection: "row" }}>
-        <ModalDropdown 
-          style={styles.dropdown_1}
-          options={subjects}
-          dropdownTextStyle={{
-            fontFamily: "Cairo-Regular",
-            fontSize: 17,
-            color: "#EBEBEB",
-            backgroundColor: "#151515",
-            }}
+          <ModalDropdown 
+            style={styles.dropdown_1}
+            options={subjects}
+            dropdownTextStyle={{
+              fontFamily: "Cairo-Regular",
+              fontSize: 17,
+              color: "#EBEBEB",
+              backgroundColor: "#151515",
+              }}
             dropdownStyle={{
               flex:1,
               justifyContent: "flex-start",
               height: 455,
-              marginTop: "-15%",
+              marginTop: "-0.5%",
             }}
             dropdownTextHighlightStyle={{
               color: "#151515", 
               backgroundColor:"#EBEBEB"
             }}
+            defaultIndex={0}
             onDropdownWillShow={toggleSbj}
             onDropdownWillHide={toggleSbj}
-            >
-          <Text
-            style={{
-              fontFamily: "Cairo-Regular",
-              fontSize: 18,
-              color: "#EBEBEB",
-              paddingTop: "4%",
-              paddingLeft: "5%",
-            }}
           >
-            Subject
-          </Text>
+            <Text
+              style={{
+                fontFamily: "Assistant-Regular",
+                fontSize: 18,
+                color: "#EBEBEB",
+                paddingTop: "5%",
+                paddingLeft: "5%",
+              }}
+            >
+              Subject
+            </Text>
           </ModalDropdown>
             
           <View style={styles.subArrow}>
@@ -90,21 +96,24 @@ function Painting(props) {
             />
           </View>
         </View>
+        {/* SUBJECT DROPDOWN END */}
+
+        {/* SORT DROPDOWN START */}
         <View style={{ flexDirection: "row" }}>
-        <ModalDropdown 
-          style={styles.dropdown_1}
-          options={sort}
-          dropdownTextStyle={{
-            fontFamily: "Cairo-Regular",
-            fontSize: 17,
-            color: "#EBEBEB",
-            backgroundColor: "#151515",
-            }}
+          <ModalDropdown 
+            style={styles.dropdown_1}
+            options={sort}
+            dropdownTextStyle={{
+              fontFamily: "Cairo-Regular",
+              fontSize: 17,
+              color: "#EBEBEB",
+              backgroundColor: "#151515",
+              }}
             dropdownStyle={{
               flex:1,
               justifyContent: "flex-start",
-              height: 188,
-              marginTop: "-15%",
+              height: 148,
+              marginTop: "-0.5%",
               marginRight: "-15%",
               marginLeft: "15%",
             }}
@@ -112,20 +121,21 @@ function Painting(props) {
               color: "#151515", 
               backgroundColor:"#EBEBEB"
             }}
+            defaultIndex={0}
             onDropdownWillShow={toggleSort}
             onDropdownWillHide={toggleSort}
-            >
-          <Text
-            style={{
-              fontFamily: "Cairo-Regular",
-              fontSize: 18,
-              color: "#EBEBEB",
-              paddingTop: "4%",
-              paddingLeft: "5%",
-            }}
           >
-            Sort
-          </Text>
+            <Text
+              style={{
+                fontFamily: "Assistant-Regular",
+                fontSize: 18,
+                color: "#EBEBEB",
+                paddingTop: "5%",
+                paddingLeft: "5%",
+              }}
+            >
+              Sort
+            </Text>
           </ModalDropdown>
           <View style={styles.sortArrow}>
             <Icon
@@ -136,7 +146,11 @@ function Painting(props) {
             />
           </View>
         </View>
+        {/* SORT DROPDOWN END */}
       </View>
+      {/* HEADER END */}
+
+      {/* GALLERY START */}
       <View style={{ flex: 1 }}>
         <ScrollView
           horizontal={false}
@@ -147,6 +161,7 @@ function Painting(props) {
           })}
         </ScrollView>
       </View>
+      {/* GALLERY END */}
     </SafeAreaView>
   )
 }
@@ -164,11 +179,11 @@ const styles = StyleSheet.create({
     margin: "1%",
   },
   subArrow: {
-    marginTop: "29%",
+    marginTop: "30%",
     paddingLeft: 3,
   },
   sortArrow: {
-    marginTop: "40%",
+    marginTop: "42%",
     paddingLeft: 3,
   },
   dropdown_1: {
